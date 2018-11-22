@@ -16,7 +16,7 @@ extension Router {
     
     static func instantiateActivationViewController() -> CollectionViewController {
         let storyboard = UIStoryboard(name: collectionStoryboard, bundle: nil)
-        let view = storyboard.instantiateInitialViewController() as! CollectionViewController
+        let view = storyboard.instantiateViewController(withIdentifier: String(describing: collectionStoryboard.self)) as! CollectionViewController
         let router = Router(view: view)
         let service = DataRequest()
         let presenter = CollectionPresenter(viewController: view,

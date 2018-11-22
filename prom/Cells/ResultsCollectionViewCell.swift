@@ -15,6 +15,13 @@ class ResultsCollectionViewCell: UICollectionViewCell, ResultsUpdatable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var presenceLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
+    }
+    
     @IBAction func buyButton(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "Продукт добавлен в корзину", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))

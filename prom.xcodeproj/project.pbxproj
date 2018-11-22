@@ -44,6 +44,7 @@
 		94DB229A219B230100BCAD7A /* prom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94DB2298219B230100BCAD7A /* prom.xcdatamodeld */; };
 		94DB229C219B230600BCAD7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DB229B219B230600BCAD7A /* Assets.xcassets */; };
 		94DB229F219B230600BCAD7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DB229D219B230600BCAD7A /* LaunchScreen.storyboard */; };
+		94E431EE21A6BDA800B6640C /* CatalogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E431ED21A6BDA700B6640C /* CatalogDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		94DB229B219B230600BCAD7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94DB229E219B230600BCAD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94DB22A0219B230600BCAD7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94E431ED21A6BDA700B6640C /* CatalogDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDelegate.swift; sourceTree = "<group>"; };
 		EF900D9F89AC4B5BDD154119 /* Pods-prom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prom/Pods-prom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 				941F1C1421A03A23002F84CF /* CatalogDataSource.swift */,
 				941F1C1821A043B6002F84CF /* Results+IGListKit.swift */,
 				941F1C1621A03A8E002F84CF /* CatalogSectionController.swift */,
+				94E431ED21A6BDA700B6640C /* CatalogDelegate.swift */,
 			);
 			path = IGListKit;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				940F3FD521A1EFFB00802D7D /* Presenter.swift in Sources */,
 				941F1C2421A06EB9002F84CF /* ResultsViewModel.swift in Sources */,
 				942E8BFE21A1C5D700601417 /* CoreDataObjectsObserver.swift in Sources */,
+				94E431EE21A6BDA800B6640C /* CatalogDelegate.swift in Sources */,
 				940F3FD921A1F04200802D7D /* ViewLifecycleDelegate.swift in Sources */,
 				941F1C2221A068C6002F84CF /* ResultsProvider.swift in Sources */,
 				940F3FD321A1EFDB00802D7D /* BaseViewController.swift in Sources */,

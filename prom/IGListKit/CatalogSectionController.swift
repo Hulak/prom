@@ -14,6 +14,7 @@ class CatalogSectionController: ListSectionController, ListDisplayDelegate {
     override init() {
         super.init()
         displayDelegate = self
+        updateCellSpacing()
     }
     
     override func didUpdate(to object: Any) {
@@ -21,10 +22,14 @@ class CatalogSectionController: ListSectionController, ListDisplayDelegate {
             return
         }
         currentResult = result
+        updateCellSpacing()
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 200, height: 400)
+        
+        updateCellSpacing()
+        return CGSize(width: 180, height: 350)
+        
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -42,6 +47,14 @@ class CatalogSectionController: ListSectionController, ListDisplayDelegate {
         }
         resultCell.updateWith(result: result)
         return cell
+    }
+    
+    func updateCellSpacing() {
+        let width = collectionContext!.containerSize.width
+        let numberOfCellsInRaw = CGFloat(Int(width / 180))
+        let widthForCells = CGFloat(numberOfCellsInRaw * 180)
+        let halfCellSpacing = (width - widthForCells) / (numberOfCellsInRaw * 2)
+        self.inset = UIEdgeInsets(top: halfCellSpacing, left: halfCellSpacing, bottom: halfCellSpacing, right: halfCellSpacing)
     }
     
     func listAdapter(_ listAdapter: ListAdapter, willDisplay sectionController: ListSectionController) {

@@ -24,7 +24,6 @@ class CollectionPresenter: BasePresenter<CollectionViewController>, CoreDataObje
         return adapter
     }()
     
-    
     init(viewController: CollectionViewController,
          router: Router,
          service: DataRequest) {
@@ -35,23 +34,40 @@ class CollectionPresenter: BasePresenter<CollectionViewController>, CoreDataObje
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        configureView()
+//        configureView()
         _ = self.viewController?.adapter
-//        performUpdatesForCoreDataChange(animated: false)
+        self.viewController!.setNeedsStatusBarAppearanceUpdate()
+        self.adapter.performUpdates(animated: true)
+
     }
-    
+
 
     private func configureView() {
         self.viewController!.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.viewController!.collectionView.collectionViewLayout = ListCollectionViewLayout(stickyHeaders: true, topContentInset: 0, stretchToEdge: false)
-//        self.viewController?.collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
+        let gradient = CAGradientLayer(layer: CAGradientLayer.self)
+        gradient.frame = (self.viewController?.navigationController?.navigationBar.bounds)!
+        gradient.colors = [#colorLiteral(red: 0.3529286683, green: 0.4166716933, blue: 0.6964689493, alpha: 1), #colorLiteral(red: 0.5466880202, green: 0.21522066, blue: 0.6038900614, alpha: 1)]
+        gradient.locations = [0.0, 1.0, 1.0, 1.0]
+        if let image = getImageFrom(gradientLayer: gradient) {
+            self.viewController?.navigationController?.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        }
     }
-    
     
     func performUpdatesForCoreDataChange(animated: Bool) {
         // Updating contents of collection view
         self.adapter.performUpdates(animated: animated)
     }
-
     
+    func getImageFrom(gradientLayer:CAGradientLayer) -> UIImage? {
+        var gradientImage:UIImage?
+        UIGraphicsBeginImageContext(gradientLayer.frame.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            gradientLayer.render(in: context)
+            gradientImage = UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch)
+        }
+        UIGraphicsEndImageContext()
+        return gradientImage
+    }
 }

@@ -21,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let collectionViewController = Router.instantiateActivationViewController
-        
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        let collectionViewController = Router.instantiateActivationViewController()
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [collectionViewController]
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = collectionViewController()
+        window?.rootViewController = navigationController
         
         let data = DataRequest()
         data.requestHandler()
